@@ -1,1 +1,158 @@
-<p>bill works!</p>
+<p>BILLING SERVICE</p>
+<div class="container">
+  <div class="col-lg-4" class="media (min-width: 992px)">
+    <form [formGroup]="billingForm" (ngSubmit)="addBill()" class="form-horizontal">
+      <h3 class="panel-title">Billing Form</h3>
+      <div class="form-group">
+        <div *ngIf="billingForm.controls.billingId.errors && 
+        (billingForm.controls.billingId.touched || billingForm.controls.billingId.dirty)">
+          Billing Id is required
+        </div>
+        <label for="billingId">Billing Id</label>
+        <input id="billingId" style="width:300px;" formControlName="billingId" type="text" class="form-control">
+      </div>
+      <div class="form-group">
+        <div *ngIf="billingForm.controls.billingId.errors && 
+        (billingForm.controls.billingId.touched || billingForm.controls.billingId.dirty)">
+          Order No is required
+        </div>
+        <label for="orderNo">Order No</label>
+        <input id="orderNo" style="width:300px;" formControlName="orderNo" type="text" class="form-control">
+      </div>
+      <div class="form-group">
+        <div *ngIf="billingForm.controls.billingId.errors && 
+        (billingForm.controls.billingId.touched || billingForm.controls.billingId.dirty)">
+          transaction mode is required
+        </div>
+        <label for="transactionMode">transaction Mode</label>
+        <select class="form-control" id="transactionMode" style="width:300px;" name="transactionMode"
+          formControlName="transactionMode" type="text">
+          <option>Select</option>
+          <option value="Net banking">Net banking</option>
+          <option value="UPI">UPI</option>
+          <option value="Cash">Cash</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <div *ngIf="billingForm.controls.billingId.errors && 
+        (billingForm.controls.billingId.touched || billingForm.controls.billingId.dirty)">
+          Transaction Date is required
+        </div>
+        <label for="transactionDate">Transaction Date</label>
+        <input id="transactionDate" style="width:300px;" formControlName="transactionDate" type="text"
+          class="form-control">
+      </div>
+      <div class="form-group">
+        <div *ngIf="billingForm.controls.billingId.errors && 
+        (billingForm.controls.billingId.touched || billingForm.controls.billingId.dirty)">
+          Transaction Status is required
+        </div>
+        <label for="transactionStatus">Transaction Status</label>
+        <input id="transactionStatus" style="width:300px;" formControlName="transactionStatus" type="text"
+          class="form-control">
+      </div>
+      <div class="form-group">
+        <div *ngIf="billingForm.controls.billingId.errors && 
+        (billingForm.controls.billingId.touched || billingForm.controls.billingId.dirty)">
+          Address Id is required
+        </div>
+        <label for="addressId">Address Id</label>
+        <input id="addressId" style="width:300px;" formControlName="addressId" type="text" class="form-control">
+      </div>
+      <div class="form-group">
+        <div *ngIf="billingForm.controls.billingId.errors && 
+        (billingForm.controls.billingId.touched || billingForm.controls.billingId.dirty)">
+          Flat No. is required
+        </div>
+        <label for="flatNo">flat No.</label>
+        <input id="flatNo" style="width:300px;" formControlName="flatNo" type="text" class="form-control">
+      </div>
+      <div class="form-group">
+        <div *ngIf="billingForm.controls.billingId.errors && 
+        (billingForm.controls.billingId.touched || billingForm.controls.billingId.dirty)">
+          Building Name is required
+        </div>
+        <label for="buildingName">Building Name</label>
+        <input id="buildingName" style="width:300px;" formControlName="buildingName" type="text" class="form-control">
+      </div>
+      <div class="form-group">
+        <div *ngIf="billingForm.controls.billingId.errors && 
+        (billingForm.controls.billingId.touched || billingForm.controls.billingId.dirty)">
+          Area is required
+        </div>
+        <label for="area">Area</label>
+        <input id="area" style="width:300px;" formControlName="area" type="text" class="form-control">
+      </div>
+      <div class="form-group">
+        <div *ngIf="billingForm.controls.billingId.errors && 
+        (billingForm.controls.billingId.touched || billingForm.controls.billingId.dirty)">
+          City is required
+        </div>
+        <label for="city">City</label>
+        <input id="city" style="width:300px;" formControlName="city" type="text" class="form-control">
+      </div>
+      <div class="form-group">
+        <div *ngIf="billingForm.controls.billingId.errors && 
+        (billingForm.controls.billingId.touched || billingForm.controls.billingId.dirty)">
+          State is required
+        </div>
+        <label for="state">State</label>
+        <input id="state" style="width:300px;" formControlName="state" type="text" class="form-control">
+      </div>
+      <div class="form-group">
+        <div *ngIf="billingForm.controls.billingId.errors && 
+        (billingForm.controls.billingId.touched || billingForm.controls.billingId.dirty)">
+          Pincode is required
+        </div>
+        <label for="pincode">Pincode</label>
+        <input id="pincode" style="width:300px;" formControlName="pincode" type="text" class="form-control">
+      </div>
+      <br>
+      <input type="submit" value="save" class="btn btn-primary py-3 px-5 ">
+    </form>
+    <br>
+    <table style="width:100%">
+      <tr *ngIf="billings.length > 0">
+        <th>Billing id</th>
+        <th>Order no</th>
+        <th>transaction Mode</th>
+        <th>transaction Status</th>
+      </tr>
+      <tr *ngFor="let bill of billings">
+        <td>{{bill.billingId}}</td>
+        <td>{{bill.orderNo}}</td>
+        <td>{{bill.transactionMode}}</td>
+        <td>{{bill.transactionStatus}}</td>
+      </tr>
+    </table>
+    <form [formGroup]="billingSearchForm" (ngSubmit)="findBilling()">
+      Enter Billing Id to view details: <br>
+      <input type="number" name="searchId" id="searchId" formControlName="searchId" />
+      <button class="btn btn-primary py-2 px-3 search" button style="margin:5px;">Search</button>
+    </form>
+    <br>
+    <table *ngIf="billing1" style="width:100%">
+      <tr>
+        <th>Billing id</th>
+        <th>Order no</th>
+        <th>transaction Mode</th>
+        <th>transaction Date</th>
+        <th>transaction Status</th>
+        <th>Address Id</th>
+        <th>City</th>
+      </tr>
+      <tr>
+        <td>{{billing1.billingId}}</td>
+        <td>{{billing1.orderNo}}</td>
+        <td>{{billing1.transactionMode}}</td>
+        <td>{{billing1.transactionDate}}</td>
+        <td>{{billing1.transactionStatus}}</td>
+        <td>{{billing1.billingAddress.addressId}}</td>
+        <td>{{billing1.billingAddress.city}}</td>
+        <td></td>
+      </tr>
+    </table>
+    <br>
+    <br>
+  </div>
+</div>
