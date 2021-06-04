@@ -10,8 +10,12 @@ import { OrderComponent } from "./component/order/order.component";
 import { BillComponent } from "./component/bill/bill.component";
 import { AdminComponent } from "./component/admin/admin.component";
 import { FeedbackComponent } from "./component/feedback/feedback.component";
-import { SignupCustomerComponent } from './component/signup-customer/signup-customer.component';
-import { SignupAdminComponent } from './component/signup-admin/signup-admin.component';
+import { SignupCustomerComponent } from "./component/signup-customer/signup-customer.component";
+import { SignupAdminComponent } from "./component/signup-admin/signup-admin.component";
+
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,7 @@ import { SignupAdminComponent } from './component/signup-admin/signup-admin.comp
     SignupCustomerComponent,
     SignupAdminComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, HttpClientModule ,FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
