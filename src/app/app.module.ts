@@ -12,7 +12,7 @@ import { AdminComponent } from "./component/admin/admin.component";
 import { FeedbackComponent } from "./component/feedback/feedback.component";
 import { SignupCustomerComponent } from './component/signup-customer/signup-customer.component';
 import { SignupAdminComponent } from './component/signup-admin/signup-admin.component';
-import { ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { FeedbackService } from "./Services/feedbackService.Service";
 import { billingService } from "./Services/billingService.Service";
 import { HttpClientModule } from "@angular/common/http";
@@ -31,7 +31,7 @@ import { HttpClientModule } from "@angular/common/http";
     SignupAdminComponent,
   ],
   imports: [BrowserModule, AppRoutingModule,HttpClientModule,
-    ReactiveFormsModule],
+    ReactiveFormsModule,FormsModule],
   providers: [FeedbackService,billingService],
   bootstrap: [AppComponent],
 })
