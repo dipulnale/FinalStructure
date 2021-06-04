@@ -1,1 +1,296 @@
-<p>feedback works!</p>
+<div class="container">
+    <div class="col-lg-4" class="media (min-width: 992px)">
+        <form [formGroup]="feedbackForm" (ngSubmit)="addFeedback()" class="form-horizontal">
+            <br>
+            <h3 class="panel-title">Feedback form</h3>
+            <br>
+            <div class=" form-group">
+                <div *ngIf="feedbackForm.controls.feedbackId.errors && 
+        (feedbackForm.controls.feedbackId.touched || feedbackForm.controls.feedbackId.dirty)">
+                    Feedback Id is required
+                </div>
+                <label for="feedbackId">Feedback Id</label>
+                <input class="form-control" style="width:300px;" type="text" name="feedbackId" id="feedbackId" formControlName="feedbackId">
+            </div>
+            <br>
+            <div class="form-group">
+                <div *ngIf="feedbackForm.controls.feedbackId.errors && 
+        (feedbackForm.controls.feedbackId.touched || feedbackForm.controls.feedbackId.dirty)">
+                    Customer Id is required
+                </div>
+                <label for="customerId">customer id</label>
+                <input class="form-control" style="width:300px;" type="text" name="customerId" id="customerId" formControlName="customerId">
+            </div>
+            <br>
+            <div class="form-group">
+                <div *ngIf="feedbackForm.controls.feedbackId.errors && 
+        (feedbackForm.controls.feedbackId.touched || feedbackForm.controls.feedbackId.dirty)">
+                    vegetable Id is required
+                </div>
+                <label for="vegetableId">vegetableId</label>
+                <select class="form-control" style="width:300px;" type="text" name="vegetableId" id="vegetableId"
+                    formControlName="vegetableId">
+                    <option>Select</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                    <option value="32">32</option>
+                    <option value="33">33</option>
+                    <option value="34">34</option>
+                    <option value="35">35</option>
+                    <option value="36">36</option>
+                    <option value="37">37</option>
+                    <option value="38">38</option>
+                    <option value="39">39</option>
+                    <option value="40">40</option>
+                    <option value="41">41</option>
+                </select>
+            </div>
+            <br>
+            <div class="form-group">
+                <div *ngIf="feedbackForm.controls.feedbackId.errors && 
+        (feedbackForm.controls.feedbackId.touched || feedbackForm.controls.feedbackId.dirty)">
+                    rating is required
+                </div>
+                <label for="rating">Rating</label>
+                <select class="form-control" style="width:300px;" type="text" name="rating" id="rating"
+                    formControlName="rating">
+                    <option>Select</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <br>
+            <div class="form-group">
+                <div *ngIf="feedbackForm.controls.feedbackId.errors && 
+        (feedbackForm.controls.feedbackId.touched || feedbackForm.controls.feedbackId.dirty)">
+                    Comments are required
+                </div>
+                <label for="comments">Comments</label>
+                <textarea class="form-control" style="width:400px; height: 150px; ;" type="text" name="comments"
+                    id="comments" formControlName="comments"></textarea>
+            </div>
+            <br>
+            <input type="submit" value="Add feedback" class="btn btn-primary py-3 px-5 ">
+        </form>
+        <br>
+        <table class="table table-bordered">
+            <tr *ngIf="feedbacks.length > 0">
+                <th>feedback Id</th>
+                <th>customer Id</th>
+                <th>vegetable Id</th>
+                <th>Rating</th>
+                <th>Comments</th>
+            </tr>
+            <tr *ngFor="let feed of feedbacks">
+                <td>{{feed.feedbackId}}</td>
+                <td>{{feed.customerId}}</td>
+                <td>{{feed.vegetableId}}</td>
+                <td>{{feed.rating}}</td>
+                <td>{{feed.comments}}</td>
+            </tr>
+        </table>
+        <br>
+        <form [formGroup]="feedbackForm" (ngSubmit)="getFeedbacks()">
+            <input type="submit" value="Feedbacks" class="btn btn-primary py-2 px-6">
+        </form>
+        <br>
+        <form [formGroup]="customersearchForm" (ngSubmit)="findCID()" (click)="toogleTag()">
+            Enter customer id to view details:
+            <select class="form-control" style="width:200px;" type="text" name="searchId" id="searchId"
+                formControlName="searchId">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+                <option value="32">32</option>
+                <option value="33">33</option>
+                <option value="34">34</option>
+                <option value="35">35</option>
+                <option value="36">36</option>
+                <option value="37">37</option>
+                <option value="38">38</option>
+                <option value="39">39</option>
+                <option value="40">40</option>
+                <option value="41">41</option>
+            </select>
+            <button class="btn btn-primary py-2 px-3 search " button style="margin:5px;">Search</button>
+            <!--<input type="submit" value="search" class="btn btn-primary" />-->
+        </form>
+        <br>
+        <table class="table table-bordered" *ngIf="feeds1 && showMe">
+            <tr>
+                <th>feedback Id</th>
+                <th>customer Id</th>
+                <th>vegetable Id</th>
+                <th>Rating</th>
+                <th>Comments</th>
+            </tr>
+            <tr *ngFor="let feed1 of feeds1">
+                <td>{{feed1.feedbackId}}</td>
+                <td>{{feed1.customerId}}</td>
+                <td>{{feed1.vegetableId}}</td>
+                <td>{{feed1.rating}}</td>
+                <td>{{feed1.comments}}</td>
+            </tr>
+        </table>
+        <br>
+        <form [formGroup]="vegetablesearchForm" (ngSubmit)="findVID()" (click)="toogleTag1()">
+            Enter vegetable id to view details:
+            <select class="form-control" style="width:200px;" type="text" name="searchId" id="searchId"
+                formControlName="searchId">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+                <option value="32">32</option>
+                <option value="33">33</option>
+                <option value="34">34</option>
+                <option value="35">35</option>
+                <option value="36">36</option>
+                <option value="37">37</option>
+                <option value="38">38</option>
+                <option value="39">39</option>
+                <option value="40">40</option>
+                <option value="41">41</option>
+            </select>
+            <button class="btn btn-primary py-2 px-3 search " button style="margin:5px;">Search</button>
+            <!--<input type="submit" value="search" class="btn btn-primary" />-->
+        </form>
+        <br>
+        <table class="table table-bordered" *ngIf="feeds2 && showMe1">
+            <tr>
+                <th>feedback Id</th>
+                <th>customer Id</th>
+                <th>vegetable Id</th>
+                <th>Rating</th>
+                <th>Comments</th>
+            </tr>
+            <tr *ngFor="let feed2 of feeds2">
+                <td>{{feed2.feedbackId}}</td>
+                <td>{{feed2.customerId}}</td>
+                <td>{{feed2.vegetableId}}</td>
+                <td>{{feed2.rating}}</td>
+                <td>{{feed2.comments}}</td>
+            </tr>
+        </table>
+        <br>
+        <form [formGroup]="ratingForm" (ngSubmit)="getRatings()" (click)="toogleTag2()">
+            Enter rating to view details:
+            <select class="form-control" style="width:200px;" type="text" name="searchId" id="searchId"
+                formControlName="searchId">
+                <option>Select</option>
+                <option>5</option>
+                <option>4</option>
+                <option>3</option>
+                <option>2</option>
+                <option>1</option>
+            </select>
+            <button class="btn btn-primary py-2 px-3 search " button style="margin:5px;">Search</button>
+        </form>
+        <!--<input type="submit" value="search" class="btn btn-primary" />-->
+        <br>
+        <table class="table table-bordered" *ngIf="ratings && showMe2">
+            <tr>
+                <th>feedback Id</th>
+                <th>customer Id</th>
+                <th>vegetable Id</th>
+                <th>Rating</th>
+                <th>Comments</th>
+            </tr>
+            <tr *ngFor="let rate of ratings">
+                <td>{{rate.feedbackId}}</td>
+                <td>{{rate.customerId}}</td>
+                <td>{{rate.vegetableId}}</td>
+                <td>{{rate.rating}}</td>
+                <td>{{rate.comments}}</td>
+            </tr>
+        </table>
+        <br>
+    </div>
+</div>
